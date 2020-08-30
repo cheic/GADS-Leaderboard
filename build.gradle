@@ -1,3 +1,5 @@
+import java.util.regex.Matcher
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.4.0"
@@ -19,6 +21,49 @@ allprojects {
         google()
         jcenter()
     }
+}
+
+
+ext {
+    // Get the current flavor of the build Ex: dev, stg, prod
+    flavor = getCurrentFlavor()
+    if (flavor.isEmpty()) {
+        flavor = "dev"
+    }
+
+    // Read the .properties for config
+    config = getProps('config/' + flavor + '.properties')
+}
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+
+    // match optional modules followed by the task
+    // [a-z]+([A-Za-z]+) will capture the flavor part of the task name onward (e.g., assembleDevRelease --> Dev)
+    def pattern = java.util.regex.Pattern.compile("([A-Z][A-Za-z]+)(Release|Debug)")
+    def flavor = ""
+
+    gradle.getStartParameter().getTaskNames().any { name ->
+        Matcher matcher = pattern.matcher(name)
+        if (matcher.find()) {
+            flavor = matcher.group(1).toLowerCase()
+            return true
+        }
+    }
+
+    return flavor
+}
+
+def getProps(path) {
+    def propsFile = rootProject.file(path)
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        return props
+    } else {
+        print("Property file not found \n")
+    }
+    return ""
 }
 
 task clean(type: Delete) {
