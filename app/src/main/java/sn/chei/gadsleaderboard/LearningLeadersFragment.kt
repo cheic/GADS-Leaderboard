@@ -14,7 +14,7 @@ import sn.chei.gadsleaderboard.data.LearningLeader
 import sn.chei.gadsleaderboard.data.remote.LearningLeadersEndPoint
 import sn.chei.gadsleaderboard.data.remote.OkHttpProvider
 
-class LearningLeaders : Fragment() {
+class LearningLeadersFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class LearningLeaders : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view  = inflater.inflate(R.layout.fragment_learning_leaders, container, false)
-        var recyclerView: RecyclerView = view.findViewById(R.id.learning_leaders_recycler_view)
+        val recyclerView: RecyclerView = view.findViewById(R.id.learning_leaders_recycler_view)
 
         var request = OkHttpProvider.buildService(LearningLeadersEndPoint::class.java)
         val call = request.getLearningLeaders()
@@ -49,8 +49,6 @@ class LearningLeaders : Fragment() {
             }
 
         })
-
-
 
         return view
     }

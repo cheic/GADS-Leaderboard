@@ -34,7 +34,7 @@
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
             <Button
-                android:id="@+id/submit_button"
+                android:id="@+id/app_bar_submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_alignParentEnd="true"
@@ -42,7 +42,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/default_margin"
                 android:layout_marginRight="@dimen/default_margin"
-                android:background="@drawable/button_submit_background"
+                android:background="@drawable/appbar_button_submit_background"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"

@@ -3,4 +3,6 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item_learning_leader_hours_and_coutry_string">%1$ learning hours, %2$</string>
+    <string name="label_learning_leaders">Learning Leaders</string>
+    <string name="label_skill_iq_leaders">Skill IQ Leaders</string>
 </resources>
