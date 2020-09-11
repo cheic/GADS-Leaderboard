@@ -6,10 +6,12 @@
     <color name="black">#000001</color>
     <color name="grey">#bdbdbd</color>
     <color name="darkGrey">#8d8d8d</color>
+    <color name="textColor">#424242</color>
     <color name="lightGrey">#efefef</color>
     <color name="orange">#FF9800</color>
     <color name="fade_start_color">#00000000</color>
     <color name="fade_center_color">#4f000000</color>
     <color name="fade_orange">#80FF9800</color>
     <color name="fade_lightGrey">#BFEFEFEF</color>
+    <color name="dialog_scrim_color">#51EFEFEF</color>
 </resources>

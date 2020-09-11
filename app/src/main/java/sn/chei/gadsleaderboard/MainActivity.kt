@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val viewPager = findViewById<ViewPager>(R.id.pager)
-        val tabLayout = findViewById<TabLayout>(R.id.tab_layout);
+        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
         val submitButton: Button = findViewById(R.id.app_bar_submit_button)
 

@@ -5,13 +5,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
 class ViewPagerAdapter(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
-    private val fragments: ArrayList<Fragment>
-    private val titles: ArrayList<String>
+    private val fragments: ArrayList<Fragment> = ArrayList()
+    private val titles: ArrayList<String> = ArrayList()
 
-    init {
-        fragments = ArrayList()
-        titles = ArrayList()
-    }
     override fun getCount(): Int {
         return fragments.size
     }

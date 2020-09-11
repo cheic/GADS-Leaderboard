@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">GADS Leaderboard</string>
     <string name="leaderboard">Leaderboard</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="item_learning_leader_hours_and_coutry_string">%1$ learning hours, %2$</string>
+    <string name="item_learning_leader_hours_and_coutry_string">%1$s learning hours, %2$s</string>
     <string name="label_learning_leaders">Learning Leaders</string>
     <string name="label_skill_iq_leaders">Skill IQ Leaders</string>
+    <string name="button_yes_text">Yes</string>
+    <string name="first_name_edittext_hint">First Name</string>
+    <string name="last_name_edittext_hint">Last Name</string>
+    <string name="email_address_edittext_hint">Email Address</string>
+    <string name="project_on_github_link_edittext_hint">Project on GITHUB (link)</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="submission_successful_text">Submisson Successful</string>
+    <string name="submission_not_successful_text">\" Submisson not Successful\"</string>
+    <string name="item_skill_iq_socre_and_coutry_string">%1$s skill IQ Score, %2$s</string>
+    <string name="somethieng_went_wrong_text">Something went wrong</string>
 </resources>

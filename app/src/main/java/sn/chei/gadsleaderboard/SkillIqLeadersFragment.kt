@@ -1,10 +1,12 @@
 package sn.chei.gadsleaderboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -16,6 +18,7 @@ import sn.chei.gadsleaderboard.data.remote.SkillIdLeadersEndPoint
 
 class SkillIqLeadersFragment : Fragment() {
 
+    private lateinit var myProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,24 +31,33 @@ class SkillIqLeadersFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_skill_iq_leaders, container, false)
-
         val recyclerView: RecyclerView = view.findViewById(R.id.skill_iq_leaders_recycler_view)
+        myProgressBar = view.findViewById(R.id.my_progressBar)
+        myProgressBar.isIndeterminate = true
+        myProgressBar.visibility = View.VISIBLE
+
         val request = OkHttpProvider.buildService(SkillIdLeadersEndPoint::class.java)
         val call = request.getSkillIqLeaders()
 
-        call.enqueue(object : Callback<List<SkillIqLeader>>{
+        call.enqueue(object : Callback<List<SkillIqLeader>> {
             override fun onResponse(
                 call: Call<List<SkillIqLeader>>,
                 response: Response<List<SkillIqLeader>>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
+                    myProgressBar.visibility = View.GONE
                     recyclerView.layoutManager = LinearLayoutManager(activity)
                     recyclerView.adapter = SkillIqLeadersAdapter(response.body()!!)
                 }
             }
 
             override fun onFailure(call: Call<List<SkillIqLeader>>, t: Throwable) {
-                TODO("Not yet implemented")
+                myProgressBar.visibility = View.GONE
+                Toast.makeText(
+                    activity?.applicationContext,
+                    getString(R.string.somethieng_went_wrong_text),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
 
